@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression Detector AI</title>
+    <!-- Use Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-face-smile-beam"></i>
+                <h1>APEXCIFY <span class="highlight">TECHNOLOGYS</span></h1>
+            </div>
+            <p class="subtitle">Real-time Facial Expression Classifier</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="dashboard">
+            <!-- Left Side: Controls & Input Selection -->
+            <section class="controls-panel">
+                <h2>Select Input Source</h2>
+                <div class="options">
+                    <button id="btn-image" class="option-btn active" onclick="selectSource('image')">
+                        <i class="fa-solid fa-image"></i> Image
+                    </button>
+                    <button id="btn-video" class="option-btn" onclick="selectSource('video')">
+                        <i class="fa-solid fa-film"></i> Video
+                    </button>
+                    <button id="btn-camera" class="option-btn" onclick="selectSource('camera')">
+                        <i class="fa-solid fa-camera"></i> Camera
+                    </button>
+                </div>
+
+                <!-- Settings per source -->
+                <div class="source-settings">
+                    <!-- Image Input -->
+                    <div id="image-input" class="input-section active-section">
+                        <div class="file-drop-area" id="image-drop">
+                            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                            <span class="file-msg">Drag & Drop Image or Click to Browse</span>
+                            <input class="file-input" type="file" id="image-upload" accept="image/*">
+                        </div>
+                    </div>
+
+                    <!-- Video Input -->
+                    <div id="video-input" class="input-section">
+                        <div class="file-drop-area" id="video-drop">
+                            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                            <span class="file-msg">Drag & Drop Video or Click to Browse</span>
+                            <input class="file-input" type="file" id="video-upload" accept="video/*">
+                        </div>
+                    </div>
+
+                    <!-- Camera Input -->
+                    <div id="camera-input" class="input-section">
+                        <div class="camera-controls">
+                            <button id="start-camera" class="primary-btn pulse"><i class="fa-solid fa-video"></i> Start Camera</button>
+                            <button id="stop-camera" class="danger-btn hidden"><i class="fa-solid fa-video-slash"></i> Stop Camera</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Preview & Results -->
+            <section class="preview-panel">
+                <div class="media-container" id="media-container">
+                    <div class="placeholder-text" id="placeholder-text">
+                        <i class="fa-solid fa-photo-film"></i>
+                        <p>No Input Selected</p>
+                    </div>
+                    
+                    <!-- Media Elements (Hidden initially) -->
+                    <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+                    <video id="video-preview" style="display: none;" controls controlsList="nodownload"></video>
+                    <video id="camera-preview" style="display: none;" autoplay playsinline muted></video>
+                    
+                    <!-- Hidden canvas for capturing frames -->
+                    <canvas id="frame-canvas" style="display: none;"></canvas>
+                </div>
+
+                <!-- Result Card -->
+                <div class="result-card">
+                    <div class="result-header">Prediction</div>
+                    <div class="result-body">
+                        <div class="prediction-class" id="prediction-text">Waiting...</div>
+                        <div class="confidence-bar-container">
+                            <div class="confidence-bar" id="confidence-bar" style="width: 0%;"></div>
+                        </div>
+                        <div class="confidence-text" id="confidence-text">0%</div>
+                    </div>
+                    <div id="status-indicator" class="status idle">
+                        <span class="dot"></span> <span id="status-text">Idle</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
