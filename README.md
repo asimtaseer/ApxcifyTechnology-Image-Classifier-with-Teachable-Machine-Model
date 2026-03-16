@@ -35,3 +35,16 @@ Users can run the application directly from their modern web browser to analyze 
 ## Other Requirements
 - **Hardware**: A working computer camera is required if you wish to use the "Start Camera" feed feature.
 - **Browser**: Use a modern browser (such as Google Chrome, Edge, or Firefox) to ensure HTML5 Video playback, `getUserMedia` support for live feeds, and CSS animation gradients work flawlessly.
+
+## 🎥 Video of Complete Workflow 
+Check out the video on YouTube:  
+
+[![Watch the video](https://img.youtube.com/vi/YTkLFoZGVEE/hqdefault.jpg)](https://youtu.be/YTkLFoZGVEE)
+
+---
+
+## 👨‍💻 Author  
+**Asim Taseer Qureshi**  
+[GitHub](https://github.com/asimtaseer) | [LinkedIn](https://www.linkedin.com/in/asimtaseer/)
+
+---
